@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:weather_app/widgets/hour_widget.dart';
+import 'package:weather_app/app/num_to_month.dart';
+import 'package:weather_app/data/models/models.dart';
+import 'hour_widget.dart';
 
 class TodayWidget extends StatelessWidget {
-  const TodayWidget({super.key});
+  final Weather weatherData;
+  const TodayWidget({super.key, required this.weatherData});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16,vertical: 12) ,
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       height: 217,
       width: double.infinity,
       decoration: BoxDecoration(
@@ -30,7 +33,7 @@ class TodayWidget extends StatelessWidget {
               ),
               Expanded(child: SizedBox()),
               Text(
-                "Mar, 9",
+                "${numToMonth(weatherData.forecast.forecastday[0].date!.month)}, ${weatherData.forecast.forecastday[0].date!.day}",
                 style: TextStyle(
                   fontFamily: "SF Pro Display",
                   fontWeight: FontWeight.w400,
@@ -43,13 +46,15 @@ class TodayWidget extends StatelessWidget {
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Row(children: [
-              HourWidget(),
-              HourWidget(),
-              HourWidget(),
-              HourWidget(),
-              HourWidget(),
-            ],),
+            child: Row(
+              children:
+                  List.generate(weatherData.forecast.forecastday[0].hour.length,
+                      (int inedex) {
+                return HourWidget(
+                  hourData: weatherData.forecast.forecastday[0].hour[inedex],
+                );
+              }),
+            ),
           )
         ],
       ),

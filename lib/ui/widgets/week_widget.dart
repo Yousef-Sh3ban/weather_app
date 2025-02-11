@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:weather_app/widgets/day_widget.dart';
-import 'package:weather_app/widgets/today_widget.dart';
+import 'day_widget.dart';
 
 class WeekWidget extends StatelessWidget {
   const WeekWidget({super.key});
