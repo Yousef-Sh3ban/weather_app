@@ -29,6 +29,7 @@ class Current {
         required this.humidity,
         required this.cloud,
         required this.feelslikeC,
+        required this.windchillC,
         required this.visKm,
         required this.uv,
     });
@@ -41,6 +42,7 @@ class Current {
     final int humidity;
     final int cloud;
     final double feelslikeC;
+    final double windchillC;
     final double visKm;
     final double uv;
 
@@ -54,6 +56,7 @@ class Current {
             humidity: json["humidity"],
             cloud: json["cloud"],
             feelslikeC: json["feelslike_c"],
+            windchillC: json["windchill_c"],
             visKm: json["vis_km"],
             uv: (json["uv"] as num).toDouble(),
         );

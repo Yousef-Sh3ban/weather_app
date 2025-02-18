@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:weather_app/data/models/models.dart';
 
 class HourWidget extends StatelessWidget {
@@ -9,10 +9,12 @@ class HourWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(15),
+      padding: EdgeInsets.symmetric(vertical: 15),
       height: 155,
       width: 75,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
             "${hourData.tempC.toInt()}°C",
@@ -32,7 +34,7 @@ class HourWidget extends StatelessWidget {
           ),
           Expanded(child: SizedBox()),
           Text(
-            hourData.time.substring(hourData.time.length-6),
+            hourData.time.substring(hourData.time.length - 5),
             style: TextStyle(
               fontFamily: "SF Pro Display",
               decoration: TextDecoration.none,

@@ -4,14 +4,14 @@ import 'package:weather_app/data/models/models.dart';
 
 class CurrentStateWidget extends StatelessWidget {
   final Weather weatherData;
-  const CurrentStateWidget({super.key,required this.weatherData});
+  const CurrentStateWidget({super.key, required this.weatherData});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.asset(
-          "assets/icons/rain2.png",
+        SvgPicture.asset(
+          "assets/icons/test.svg",
           height: 200,
           width: 200,
         ),
@@ -81,7 +81,7 @@ class CurrentStateWidget extends StatelessWidget {
                 ),
               ),
               Expanded(child: SizedBox()),
-              SvgPicture.asset("assets/icons/wind.svg"),
+              SvgPicture.asset("assets/icons/wind_speed.svg"),
               Text(
                 "  ${weatherData.current.windKph}km/h",
                 style: TextStyle(

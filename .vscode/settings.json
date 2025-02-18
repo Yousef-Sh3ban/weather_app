@@ -22,7 +22,8 @@
         "pubspec.lock": true,
         "README.md": true,
         "weather_app.iml": true,
-        "build": true
+        "build": true,
+        "devtools_options.yaml": true
     },
     "hide-files.files": [
         "linux",
@@ -41,7 +42,8 @@
         "pubspec.lock",
         "README.md",
         "weather_app.iml",
-        "build"
+        "build",
+        "devtools_options.yaml"
     ],
     "autoHide.autoHideSideBar": true
 }

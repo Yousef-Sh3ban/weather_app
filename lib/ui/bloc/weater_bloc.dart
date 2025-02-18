@@ -12,11 +12,10 @@ class WeaterBloc extends Bloc<AppEvent, AppState> {
   GetWeatheData getWeatheData = GetWeatheData();
 
   sendWeatherData(AskForWeatherEvent event, Emitter emit)async {
-    log("in the method");
     emit(LoadingState());
     try {
-      Weather data =await getWeatheData.getData("Cairo");
-      emit(LoadedState(weatherData: data));
+      Weather data =await getWeatheData.getData(event.city);
+      emit(LoadedState(data: data));
     } catch (e) {
       log("error");
       log(e.toString());
