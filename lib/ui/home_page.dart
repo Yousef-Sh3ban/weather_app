@@ -5,7 +5,7 @@ import 'package:weather_app/data/models/models.dart';
 import 'package:weather_app/data/network/get_search_data.dart';
 import 'package:weather_app/ui/bloc/app_state.dart';
 import 'package:weather_app/ui/bloc/search_cubit.dart';
-import 'package:weather_app/ui/bloc/weater_bloc.dart';
+import 'package:weather_app/ui/bloc/weather_bloc.dart';
 import 'package:weather_app/ui/search_page.dart';
 import 'package:weather_app/ui/widgets/mini_statu.dart';
 import 'package:weather_app/ui/widgets/status_widget.dart';
@@ -23,8 +23,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    context.read<WeaterBloc>().add(AskForWeatherEvent(widget.city));
-    return BlocBuilder<WeaterBloc, AppState>(
+    context.read<WeatherBloc>().add(AskForWeatherEvent(widget.city));
+    return BlocBuilder<WeatherBloc, AppState>(
       builder: (context, state) {
         if (state is LoadedState) {
           Weather weatherData = state.data;
@@ -135,30 +135,19 @@ class _HomePageState extends State<HomePage> {
           );
         }
         return Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color(0xFF29B2DD),
-                Color(0xFF33AADD),
-                Color(0xFF2DC8EA),
-              ],
-              // colors: weatherData.current.isDay == 0
-              //     ? [
-              //         Color(0xFF08244F),
-              //         Color(0xFF134CBF),
-              //         Color(0xFF0842AB),
-              //       ]
-              //     : [
-              //         Color(0xFF29B2DD),
-              //         Color(0xFF33AADD),
-              //         Color(0xFF2DC8EA),
-              //       ],
-              stops: [0.0, 0.47, 1.0],
-              begin: Alignment.topCenter,
-              end: Alignment.bottomCenter,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: [
+                  Color(0xFF29B2DD),
+                  Color(0xFF33AADD),
+                  Color(0xFF2DC8EA),
+                ],
+                stops: [0.0, 0.47, 1.0],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              ),
             ),
-          ),
-        );
+            child: Center(child: CircularProgressIndicator()));
       },
     );
   }

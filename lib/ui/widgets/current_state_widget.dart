@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:weather_app/app/functions/get_condation_icon.dart';
 import 'package:weather_app/data/models/models.dart';
 
 class CurrentStateWidget extends StatelessWidget {
@@ -9,11 +10,20 @@ class CurrentStateWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset(
-          "assets/icons/test.svg",
-          height: 200,
-          width: 200,
+        Row(
+          children: [
+            Expanded(child: SizedBox()),
+           getConditionIcon(  
+              condition: weatherData.current.condition.text,
+              isDay: weatherData.current.isDay == 1,
+              height: 200,
+              width: 200,
+            ),
+            Expanded(child: SizedBox()),
+          ],
         ),
         SizedBox(
           height: 2,

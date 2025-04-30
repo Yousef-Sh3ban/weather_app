@@ -72,6 +72,7 @@ class StatusWidget extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            SizedBox(height: 1),
                           ],
                         ),
                         Positioned.fill(
@@ -128,7 +129,7 @@ class StatusWidget extends StatelessWidget {
                       height: 17,
                     ),
                     Text(
-                      "difference from real is ${weatherData.current.tempC.round() - weatherData.current.feelslikeC.round()}°.",
+                      "difference from real is ${weatherData.current.feelslikeC.round()-weatherData.current.tempC.round()}°.",
                       style: TextStyle(
                         fontSize: 15,
                         fontFamily: "SF Pro Display",

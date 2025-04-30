@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:weather_app/data/network/app_end_point.dart';
 import 'package:weather_app/data/models/models.dart';
 
-class GetWeatheData {
+class GetWeatherData {
   getData(String city) async {
     try {
       Dio dio = Dio();

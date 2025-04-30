@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:weather_app/app/functions/save_load_city.dart';
 import 'package:weather_app/data/models/city_model.dart';
-import 'package:weather_app/ui/bloc/weater_bloc.dart';
+import 'package:weather_app/ui/bloc/weather_bloc.dart';
 import 'package:weather_app/ui/home_page.dart';
 
 class SearchReseltWidget extends StatelessWidget {
@@ -16,15 +17,17 @@ class SearchReseltWidget extends StatelessWidget {
         itemBuilder: (context, int index) {
           return InkWell(
             onTap: () {
-              Navigator.of(context).push(
+              saveCity(data[index].name!);
+              Navigator.of(context).pushAndRemoveUntil(
                 MaterialPageRoute(
                   builder: (context) => BlocProvider(
-                    create: (context) => WeaterBloc(),
+                    create: (context) => WeatherBloc(),
                     child: HomePage(
                       city: data[index].name!,
                     ),
                   ),
                 ),
+                (route) => false,
               );
             },
             child: Column(

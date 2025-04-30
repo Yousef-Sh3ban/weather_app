@@ -14,13 +14,26 @@ class GetSearchData {
       List<CityData> searchResult = List.generate(
         (response.data as List).length,
         (int index) {
-          log(CityData.fromJson(response.data[index]).name!);
           return CityData.fromJson(response.data[index]);
         },
       );
       return searchResult;
     } catch (e) {
       log(e.toString());
+    }
+  }
+
+  static Future<String> getCityWithLocation(double lat, double lon) async {
+    try {
+      Dio dio = Dio();
+      Response response = await dio.get(
+        AppEndPoint.searchUrl,
+        queryParameters: {"key": AppEndPoint.apiKey, "q": "$lat,$lon"},
+      );
+      return CityData.fromJson(response.data[0]).name!;
+    } catch (e) {
+      log(e.toString());
+      return "error";
     }
   }
 }

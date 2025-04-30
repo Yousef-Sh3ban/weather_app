@@ -3,16 +3,14 @@
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
-        "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
+        "**/CVS": true,
         "linux": true,
         "macos": true,
         "test": true,
         "web": true,
         "windows": true,
-        "ios": true,
-        "android": true,
         ".vscode": true,
         ".idea": true,
         ".dart_tool": true,
@@ -22,7 +20,6 @@
         "pubspec.lock": true,
         "README.md": true,
         "weather_app.iml": true,
-        "build": true,
         "devtools_options.yaml": true
     },
     "hide-files.files": [
@@ -31,8 +28,6 @@
         "test",
         "web",
         "windows",
-        "ios",
-        "android",
         ".vscode",
         ".idea",
         ".dart_tool",
@@ -42,7 +37,6 @@
         "pubspec.lock",
         "README.md",
         "weather_app.iml",
-        "build",
         "devtools_options.yaml"
     ],
     "autoHide.autoHideSideBar": true

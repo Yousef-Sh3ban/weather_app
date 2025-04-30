@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:weather_app/app/functions/get_condation_icon.dart';
 import 'package:weather_app/data/models/models.dart';
 
 class HourWidget extends StatelessWidget {
@@ -27,11 +30,17 @@ class HourWidget extends StatelessWidget {
             ),
           ),
           Expanded(child: SizedBox()),
-          SvgPicture.asset(
-            "assets/icons/cloudy.svg",
-            height: 40,
-            width: 40,
+          getConditionIcon(  
+              condition: hourData.condition.text,
+              isDay: hourData.isDay== 1,
+              height: 40,
+              width: 40,
           ),
+          //  SvgPicture.asset(
+          //   "assets/icons/cloudy.svg",
+          //   height: 40,
+          //   width: 40,
+          // ),
           Expanded(child: SizedBox()),
           Text(
             hourData.time.substring(hourData.time.length - 5),
