@@ -36,7 +36,7 @@ class SingelStatu extends StatelessWidget {
                   fontFamily: "SF Pro Display",
                   fontWeight: FontWeight.w500,
                   decoration: TextDecoration.none,
-                  color: Colors.white.withOpacity(0.3),
+                  color: Colors.black.withOpacity(0.3),
                 ),
               )
             ],

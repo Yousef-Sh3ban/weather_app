@@ -60,7 +60,7 @@ class SearchReseltWidget extends StatelessWidget {
                   width: double.infinity,
                   height: 6,
                   decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.3),
+                      color: Colors.black.withOpacity(0.3),
                       borderRadius: BorderRadius.circular(8)),
                 ),
                 SizedBox(

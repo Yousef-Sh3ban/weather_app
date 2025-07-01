@@ -22,6 +22,10 @@ class AskForWeatherEvent extends AppEvent {
   String city;
   AskForWeatherEvent(this.city);
 }
+class RefreshWeatherEvent extends AppEvent {
+  String city;
+  RefreshWeatherEvent(this.city);
+}
 
 class LoadingEvent extends AppEvent {}
 

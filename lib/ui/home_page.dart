@@ -49,86 +49,95 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             child: SafeArea(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Row(
-                      children: [
-                        SvgPicture.asset("assets/icons/location.svg"),
-                        Expanded(child: SizedBox()),
-                        Text(
-                          weatherData.location.name,
-                          style: TextStyle(
-                            fontFamily: "SF Pro Display",
-                            decoration: TextDecoration.none,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white,
-                            fontSize: 20,
+              child: RefreshIndicator(
+                onRefresh: () async {
+                    // Dispatch refresh event
+                    context.read<WeatherBloc>().add(RefreshWeatherEvent(widget.city));
+                    // Await new state
+                    await context.read<WeatherBloc>().stream
+                        .firstWhere((state) => state is! LoadingState);
+                  },
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          SvgPicture.asset("assets/icons/location.svg"),
+                          Expanded(child: SizedBox()),
+                          Text(
+                            weatherData.location.name,
+                            style: TextStyle(
+                              fontFamily: "SF Pro Display",
+                              decoration: TextDecoration.none,
+                              fontWeight: FontWeight.w700,
+                              color: Colors.white,
+                              fontSize: 20,
+                            ),
                           ),
-                        ),
-                        Expanded(child: SizedBox()),
-                        GestureDetector(
-                            onTap: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => BlocProvider(
-                                    create: (context) => SearchCubit(),
-                                    child: SearchPage(
-                                        colors: weatherData.current.isDay == 0
-                                            ? [
-                                                Color(0xFF08244F),
-                                                Color(0xFF134CBF),
-                                                Color(0xFF0842AB),
-                                              ]
-                                            : [
-                                                Color(0xFF29B2DD),
-                                                Color(0xFF33AADD),
-                                                Color(0xFF2DC8EA),
-                                              ]),
+                          Expanded(child: SizedBox()),
+                          GestureDetector(
+                              onTap: () {
+                                Navigator.of(context).push(
+                                  MaterialPageRoute(
+                                    builder: (context) => BlocProvider(
+                                      create: (context) => SearchCubit(),
+                                      child: SearchPage(
+                                          colors: weatherData.current.isDay == 0
+                                              ? [
+                                                  Color(0xFF08244F),
+                                                  Color(0xFF134CBF),
+                                                  Color(0xFF0842AB),
+                                                ]
+                                              : [
+                                                  Color(0xFF29B2DD),
+                                                  Color(0xFF33AADD),
+                                                  Color(0xFF2DC8EA),
+                                                ]),
+                                    ),
                                   ),
-                                ),
-                              );
-                            },
-                            child: SvgPicture.asset("assets/icons/search.svg")),
-                      ],
-                    ),
-                    CurrentStateWidget(weatherData: weatherData),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    TodayWidget(
-                      todayData: weatherData.forecast.forecastday[0],
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    WeekWidget(
-                      forecast: weatherData.forecast,
-                    ),
-                    SizedBox(height: 15),
-                    Row(
-                      children: [
-                        MiniStatu(
-                          iconPath: "assets/icons/sunrise.svg",
-                          name: "Sunrise",
-                          time:
-                              weatherData.forecast.forecastday[0].astro.sunrise,
-                        ),
-                        SizedBox(
-                          width: 28,
-                        ),
-                        MiniStatu(
-                          iconPath: "assets/icons/sunset.svg",
-                          name: "Sunset",
-                          time:
-                              weatherData.forecast.forecastday[0].astro.sunset,
-                        ),
-                      ],
-                    ),
-                    SizedBox(height: 15),
-                    StatusWidget(weatherData: weatherData),
-                    SizedBox(height: 15),
-                  ],
+                                );
+                              },
+                              child: SvgPicture.asset("assets/icons/search.svg")),
+                        ],
+                      ),
+                      CurrentStateWidget(weatherData: weatherData),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      TodayWidget(
+                        todayData: weatherData.forecast.forecastday[0],
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      WeekWidget(
+                        forecast: weatherData.forecast,
+                      ),
+                      SizedBox(height: 15),
+                      Row(
+                        children: [
+                          MiniStatu(
+                            iconPath: "assets/icons/sunrise.svg",
+                            name: "Sunrise",
+                            time:
+                                weatherData.forecast.forecastday[0].astro.sunrise,
+                          ),
+                          SizedBox(
+                            width: 28,
+                          ),
+                          MiniStatu(
+                            iconPath: "assets/icons/sunset.svg",
+                            name: "Sunset",
+                            time:
+                                weatherData.forecast.forecastday[0].astro.sunset,
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 15),
+                      StatusWidget(weatherData: weatherData),
+                      SizedBox(height: 15),
+                    ],
+                  ),
                 ),
               ),
             ),
