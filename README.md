@@ -170,9 +170,9 @@ _Coming soon! Add your app screenshots here._
 
 ## 📞 Contact & Social Links
 
-- **GitHub**: [@yourusername](https://github.com/yourusername)
-- **LinkedIn**: [Your Name](https://linkedin.com/in/yourprofile)
-- **Email**: your.email@example.com
+- **GitHub**: [@Yousef-Sh3ban](https://github.com/Yousef-Sh3ban)
+- **LinkedIn**: [yousef-sh3ban](https://linkedin.com/in/yousef-sh3ban)
+- **Email**: yousefshaban1551@gmail.com
 
 ---
 
