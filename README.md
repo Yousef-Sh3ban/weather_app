@@ -1,10 +1,10 @@
-<div align="center">
-  <img src="screenshots/banner.png" alt="Weather App Banner" width="100%"/>
-</div>
-
 # 🌤️ Weather App
 
 A beautiful and feature-rich Flutter weather application that provides real-time weather information, forecasts, and detailed meteorological data using the WeatherAPI service.
+
+<div align="center">
+  <img src="screenshots/banner.png" alt="Weather App Banner" width="100%"/>
+</div>
 
 ## 📋 Overview
 
