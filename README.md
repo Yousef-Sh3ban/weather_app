@@ -1,4 +1,4 @@
-# 🌤️ Weather App
+# 🌤️ Atmos - Weather App
 
 A beautiful and feature-rich Flutter weather application that provides real-time weather information, forecasts, and detailed meteorological data using the WeatherAPI service.
 
@@ -8,7 +8,7 @@ A beautiful and feature-rich Flutter weather application that provides real-time
 
 ## 📋 Overview
 
-This Flutter-based weather application delivers an intuitive and visually appealing interface for checking weather conditions. It automatically detects your location and provides comprehensive weather information including current conditions, hourly forecasts, 3-day predictions, and essential weather metrics like UV index, humidity, and visibility.
+Atmos is a Flutter-based weather application that delivers an intuitive and visually appealing interface for checking weather conditions. It automatically detects your location and provides comprehensive weather information, including current conditions, hourly forecasts, 3-day predictions, and essential weather metrics like UV index, humidity, and visibility.
 
 ## ✨ Features
 
